@@ -8,6 +8,12 @@
     }
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .navbar {
     background-color: #000000 !important;
 }
@@ -29,6 +35,7 @@ body {
     background-color: #3d4157;
     margin: 10px;
     font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .apresentacao {
@@ -124,28 +131,85 @@ body {
     text-align: center;
 }
 
-#projetos ul {
-    list-style-type: disc;
+#projetos {
+    width: min(100%, 850px);
+}
+
+.lista-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    list-style: none;
     padding: 0;
+    margin: 20px 0 0;
+}
+
+.projeto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: beige;
+    color: #20252b;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.projeto h4,
+.projeto p {
     margin: 0;
 }
 
+.projeto p {
+    flex-grow: 1;
+}
+
+.tecnologias {
+    color: #3d4157;
+    font-weight: bold;
+}
+
+.projeto a {
+    color: #20252b;
+    font-weight: bold;
+}
+
+body.tema-claro .projeto {
+    background-color: white;
+}
+
 #Hobby {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    width: auto;
+    box-sizing: border-box;
     background-color: rgb(58, 71, 114);
     padding: 20px;
+    margin: 30px 20px;
+}
+
+#Hobby h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lista-hobbies {
+    display: grid;
+    grid-template-columns: repeat(3, 19rem);
+    justify-content: center;
+    gap: 10px;
 }
 
 .card {
     background: beige;
     padding: 20px;
-    width: 18rem;
-    margin: 10px;
+    width: 100% !important;
+    max-width: 19rem;
+    margin: 0 auto;
     border-radius: 12px;
+}
+
+.card img {
+    height: 170px;
+    object-fit: cover;
 }
 
 footer {
@@ -160,4 +224,70 @@ footer {
 
 footer h4 {
     color: beige;
+}
+
+.link-contato {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: bisque;
+}
+
+.link-contato i {
+    font-size: 1.2rem;
+    color: bisque ;
+}
+
+
+body.tema-claro {
+    background-color: #eef1f5;
+}
+
+body.tema-claro .apresentacao,
+body.tema-claro .informacoes,
+body.tema-claro #Hobby {
+    background-color: #dce3ec;
+}
+
+body.tema-claro #sobre,
+body.tema-claro #habilidades {
+    color: #20252b;
+}
+
+body.tema-claro #sobre p {
+    color: #20252b;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 0;
+    }
+
+    .apresentacao {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    #sobre {
+        max-width: 100%;
+        padding: 0 20px 20px;
+    }
+
+    #sobre p {
+        text-align: justify;
+    }
+
+    #foto {
+        width: 220px;
+        height: 220px;
+    }
+
+    .lista-projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-hobbies {
+        grid-template-columns: 1fr;
+    }
 }
