@@ -97,7 +97,10 @@ body {
 
 #sobre p {
     margin: 0;
-    text-align: left;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
     color: white;
 }
 
