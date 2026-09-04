@@ -1,21 +1,23 @@
 import { useState } from "react";
+import { informacoesPessoais } from "../data/conteudo";
 
 function Header() {
-    const [menuAberto, setMenuAberto] = useState(false);
-    const [temaClaro, setTemaClaro] = useState(false);
+  const [menuAberto, setMenuAberto] = useState<boolean>(false);
 
-    const alternarTema = () => {
-        setTemaClaro((prev) => !prev);
-        document.body.classList.toggle('tema-claro');
-    };
+  function alternarMenu() {
+    setMenuAberto((prev) => !prev);
+  }
+
+  function fecharMenu() {
+    setMenuAberto(false);
+  }
 
   return (
-    <>
     <header className="header">
       <div className="container header-conteudo">
         <a className="marca" href="#inicio" onClick={fecharMenu}>
-          <span>João Pedro</span>
-          <small>Estudante de Engenharia da Computação</small>
+          <span>{informacoesPessoais.nome}</span>
+          <small>{informacoesPessoais.cargo}</small>
         </a>
 
         <button
@@ -31,18 +33,18 @@ function Header() {
         <nav className={menuAberto ? "nav aberta" : "nav"} aria-label="Navegação principal">
           <a href="#inicio" onClick={fecharMenu}>Início</a>
           <a href="#sobre" onClick={fecharMenu}>Sobre</a>
-          <a href="#projetos" onClick={fecharMenu}>Projetos</a>
           <a href="#habilidades" onClick={fecharMenu}>Habilidades</a>
+          <a href="#projetos" onClick={fecharMenu}>Projetos</a>
           <a href="#hobbies" onClick={fecharMenu}>Hobbies</a>
           <a href="#contato" onClick={fecharMenu}>Contato</a>
           <a className="botao botao-pequeno" href="#contato" onClick={fecharMenu}>
-            
+            Fale Comigo
           </a>
         </nav>
       </div>
     </header>
-    </>
   );
 }
 
 export default Header;
+
